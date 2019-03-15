@@ -1,6 +1,8 @@
-package com.loto.baseloto.items;
+package com.loto.lotomod.items;
 
 import java.util.function.Supplier;
+
+import com.loto.lotomod.registry.ItemRegistry;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.IItemTier;
@@ -10,7 +12,10 @@ import net.minecraft.util.LazyLoadBase;
 
 public enum LOTOItemTier implements IItemTier{
 	   OVERLORD(5, 16542, 40.0F, 32.0F, 30, () -> {
-		      return Ingredient.fromItems(Items.QUARTZ);
+		      return Ingredient.fromItems(Items.QUARTZ); // Temporary probably
+		   }),
+	   MYTHICAL(5, 4000, 8.0F, 6.0F, 20, () -> {
+		      return Ingredient.fromItems(ItemRegistry.mythicalDiamond);
 		   });
 
 		   private final int harvestLevel;

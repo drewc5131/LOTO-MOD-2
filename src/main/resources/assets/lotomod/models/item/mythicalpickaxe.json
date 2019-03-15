@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "baseloto:items/mythicalpickaxe"
+		"1": "lotomod:item/mythicalpickaxe"
 	},
 	"elements": [
 		{

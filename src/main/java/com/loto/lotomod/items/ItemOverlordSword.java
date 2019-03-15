@@ -1,4 +1,4 @@
-package com.loto.baseloto.items;
+package com.loto.lotomod.items;
 
 import java.util.List;
 

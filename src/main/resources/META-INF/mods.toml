@@ -20,7 +20,7 @@ modId="lotomod" #mandatory
 version="${file.jarVersion}" #mandatory
 
  # A display name for the mod
-displayName="LOTO MOD 2.0" #mandatory
+displayName="LOTO MOD 2.0 ALPHA" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional

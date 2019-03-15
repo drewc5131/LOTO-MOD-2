@@ -1,6 +1,6 @@
-package com.loto.baseloto;
+package com.loto.lotomod;
 
-import com.loto.baseloto.registry.ItemRegistry;
+import com.loto.lotomod.registry.ItemRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
