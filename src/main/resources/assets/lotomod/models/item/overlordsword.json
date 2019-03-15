@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "baseloto:items/overlordsword",
-		"particle": "baseloto:items/overlordsword"
+		"0": "lotomod:items/overlordsword",
+		"particle": "lotomod:items/overlordsword"
 	},
 	"elements": [
 		{
