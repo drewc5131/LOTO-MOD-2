@@ -16,40 +16,43 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("lotomod")
-public class LOTOMod
-{
+public class LOTOMod {
 	public static LOTOItems lotoItemGroup;
-    public LOTOMod() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
 
-        MinecraftForge.EVENT_BUS.register(this);
+	public LOTOMod() {
+		FMLJavaModLoadingContext.get().getModEventBus()
+				.addListener(this::setup);
+		FMLJavaModLoadingContext.get().getModEventBus()
+				.addListener(this::setupClient);
 
-    	lotoItemGroup = new LOTOItems("loto");
+		MinecraftForge.EVENT_BUS.register(this);
 
-    }
+		lotoItemGroup = new LOTOItems("loto");
+	}
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
-    }
+	private void setup(final FMLCommonSetupEvent event) {
+	}
 
-    private void setupClient(final FMLClientSetupEvent event) {
-    	
-    }
+	private void setupClient(final FMLClientSetupEvent event) {
 
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-        }
-        @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent){
+	}
 
-        	ItemRegistry.registerItems();
-        }
-    }
-    
-    public class LOTOItems extends ItemGroup{
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegistryEvents {
+		@SubscribeEvent
+		public static void onBlocksRegistry(
+				final RegistryEvent.Register<Block> blockRegistryEvent) {
+		}
+
+		@SubscribeEvent
+		public static void onItemsRegistry(
+				final RegistryEvent.Register<Item> itemRegistryEvent) {
+
+			ItemRegistry.registerItems();
+		}
+	}
+
+	public class LOTOItems extends ItemGroup {
 
 		public LOTOItems(String label) {
 			super(label);
@@ -58,5 +61,6 @@ public class LOTOMod
 		@Override
 		public ItemStack createIcon() {
 			return new ItemStack(ItemRegistry.overlordSword);
-		}}
+		}
+	}
 }
