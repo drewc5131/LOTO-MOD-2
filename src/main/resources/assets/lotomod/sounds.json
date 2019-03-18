@@ -1,4 +1,4 @@
 {
- "machines": {"category": "master","sounds": [{"name": "baseloto:machines","stream": true}]},
- "despacito": {"category": "master","sounds": [{"name": "baseloto:despacito","stream": true}]}
+ "machines": {"category": "master","sounds": [{"name": "lotomod:machines","stream": true}]},
+ "despacito": {"category": "master","sounds": [{"name": "lotomod:despacito","stream": true}]}
 }

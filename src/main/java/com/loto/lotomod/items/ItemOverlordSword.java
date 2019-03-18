@@ -20,65 +20,63 @@ import net.minecraft.world.World;
 
 import com.google.common.collect.Multimap;
 
-public class ItemOverlordSword extends ItemSword {
+public class ItemOverlordSword extends ItemSword
+{
 
 	private float attackSpeed;
 	private float attackDamage;
 
-	public ItemOverlordSword(IItemTier tier, int attackDamageIn,
-			float attackSpeedIn, Item.Properties builder) {
+	public ItemOverlordSword(IItemTier tier, int attackDamageIn, float attackSpeedIn, Item.Properties builder)
+	{
 		super(tier, attackDamageIn, attackSpeedIn, builder);
 		this.attackSpeed = attackSpeedIn;
 		this.attackDamage = attackDamageIn;
 	}
 
-	public void addInformation(ItemStack stack, EntityPlayer player,
-			List<String> lores, boolean par4) {
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> lores, boolean par4)
+	{
 		lores.add("§3§lThe Oversword\n§r§oShoots fireballs.\nLaunches the holder when they are using an elytra.");
 	}
 
 	@Override
-	public Multimap<String, AttributeModifier> getAttributeModifiers(
-			EntityEquipmentSlot equipmentSlot) {
-		Multimap<String, AttributeModifier> multimap = super
-				.getAttributeModifiers(equipmentSlot);
-		if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
-					new AttributeModifier(ATTACK_DAMAGE_MODIFIER,
-							"Weapon modifier", (double) this.attackDamage, 0));
-			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(),
-					new AttributeModifier(ATTACK_SPEED_MODIFIER,
-							"Weapon modifier", (double) this.attackSpeed, 0));
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot)
+	{
+		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
+		if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
+		{
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, 0));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double) this.attackSpeed, 0));
 		}
 
 		return multimap;
 	}
 
-	public ActionResult<ItemStack> onItemRightClick(World worldIn,
-			EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+	{
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 
 		// If the player is using an elytra, do the firework launch thing
-		if (playerIn.isElytraFlying()) {
-			if (!worldIn.isRemote) {
-				EntityFireworkRocket entityfireworkrocket = new EntityFireworkRocket(
-						worldIn, itemstack, playerIn);
+		if (playerIn.isElytraFlying())
+		{
+			if (!worldIn.isRemote)
+			{
+				EntityFireworkRocket entityfireworkrocket = new EntityFireworkRocket(worldIn, itemstack, playerIn);
 				worldIn.spawnEntity(entityfireworkrocket);
 
 			}
 
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS,
-					playerIn.getHeldItem(handIn));
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 		}
 		// Otherwise, just shoot a fireball
-		else {
+		else
+		{
 			double d1 = 4.0D;
 			Vec3d looking = playerIn.getLookVec();
-			if (looking != null) {
+			if (looking != null)
+			{
 				Vec3d vec3d = playerIn.getLook(1.0F);
 				EntityLargeFireball fireball = new EntityLargeFireball(worldIn);
-				fireball.setPositionAndUpdate(playerIn.posX + vec3d.x * d1,
-						playerIn.posY, playerIn.posZ + vec3d.z * d1);
+				fireball.setPositionAndUpdate(playerIn.posX + vec3d.x * d1, playerIn.posY, playerIn.posZ + vec3d.z * d1);
 				fireball.motionX = looking.x;
 				fireball.motionY = looking.y;
 				fireball.motionZ = looking.z;
@@ -95,6 +93,5 @@ public class ItemOverlordSword extends ItemSword {
 		return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
 
 	}
-
 
 }

@@ -1,6 +1,6 @@
 {
     "parent":"item/handheld",
     "textures": {
-        "layer0":"baseloto:items/overlordaxe"
+        "layer0":"lotomod:items/overlordaxe"
     }
 }

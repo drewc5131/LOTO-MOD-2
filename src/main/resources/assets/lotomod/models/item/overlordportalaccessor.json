@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "baseloto:items/overlordportalaccessor",
-		"particle": "baseloto:items/overlordportalaccessor"
+		"0": "lotomod:items/overlordportalaccessor",
+		"particle": "lotomod:items/overlordportalaccessor"
 	},
 	"elements": [
 		{

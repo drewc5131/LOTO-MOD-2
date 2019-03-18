@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "baseloto:items/chipmunkcard",
-		"particle": "baseloto:items/chipmunkcard"
+		"0": "lotomod:items/chipmunkcard",
+		"particle": "lotomod:items/chipmunkcard"
 	},
 	"elements": [
 		{

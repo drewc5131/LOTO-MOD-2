@@ -1,7 +1,7 @@
 {
     "variants": {
-        "explode=true": { "model":"baseloto:chrismachine" },
-        "explode=false": { "model":"baseloto:chrismachine" },
-        "inventory": { "model":"baseloto:chrismachine" }
+        "explode=true": { "model":"lotomod:chrismachine" },
+        "explode=false": { "model":"lotomod:chrismachine" },
+        "inventory": { "model":"lotomod:chrismachine" }
     }
 }

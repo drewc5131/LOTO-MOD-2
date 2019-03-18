@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "baseloto:items/gtx_970_palette",
-		"particle": "baseloto:items/gtx_970_palette"
+		"0": "lotomod:items/gtx_970_palette",
+		"particle": "lotomod:items/gtx_970_palette"
 	},
 	"elements": [
 		{

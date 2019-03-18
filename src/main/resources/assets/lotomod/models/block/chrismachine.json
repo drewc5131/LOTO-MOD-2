@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "baseloto:blocks/chrismachine",
-		"1": "baseloto:blocks/chrismachine_side",
-		"particle": "baseloto:blocks/chrismachine"
+		"0": "lotomod:blocks/chrismachine",
+		"1": "lotomod:blocks/chrismachine_side",
+		"particle": "lotomod:blocks/chrismachine"
 	},
 	"elements": [
 		{
