@@ -2,6 +2,9 @@ package com.loto.lotomod.items;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.EntityFireworkRocket;
@@ -16,6 +19,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 import com.google.common.collect.Multimap;
@@ -32,10 +37,11 @@ public class ItemOverlordSword extends ItemSword
 		this.attackSpeed = attackSpeedIn;
 		this.attackDamage = attackDamageIn;
 	}
-
-	public void addInformation(ItemStack stack, EntityPlayer player, List<String> lores, boolean par4)
+	
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> lores, ITooltipFlag flagIn)
 	{
-		lores.add("§3§lThe Oversword\n§r§oShoots fireballs.\nLaunches the holder when they are using an elytra.");
+		lores.add(new TextComponentString("o§3§lThe Oversword\n§r§oShoots fireballs.\nLaunches the holder when they are using an elytra."));
 	}
 
 	@Override
