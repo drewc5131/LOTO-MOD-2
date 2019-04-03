@@ -41,7 +41,7 @@ public class ItemOverlordSword extends ItemSword
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> lores, ITooltipFlag flagIn)
 	{
-		lores.add(new TextComponentString("o§3§lThe Oversword\n§r§oShoots fireballs.\nLaunches the holder when they are using an elytra."));
+		lores.add(new TextComponentString("§o§3§lThe Oversword\n§r§oShoots fireballs.\nLaunches the holder when they are using an elytra."));
 	}
 
 	@Override

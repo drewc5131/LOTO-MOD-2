@@ -1,9 +1,12 @@
 package com.loto.lotomod;
 
 import com.loto.lotomod.registry.BlockRegistry;
+import com.loto.lotomod.registry.MobRegistry;
 import com.loto.lotomod.registry.ItemRegistry;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -54,6 +57,11 @@ public class LOTOMod
 		{
 
 			ItemRegistry.registerItems();
+		}
+		
+		@SubscribeEvent
+		public static void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> entityRegistryEvent){
+			MobRegistry.registerEntities();
 		}
 	}
 
