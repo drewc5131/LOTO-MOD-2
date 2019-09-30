@@ -7,7 +7,7 @@
 # WHAT THE FUCK IS THIS
 modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[25,)" #mandatory (24 is current forge version)
+loaderVersion="[28,)" #mandatory (28 is current forge version)
 # A URL to refer people to when problems occur with this mod
 issueTrackerURL="http://my.issue.tracker/" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
@@ -21,12 +21,6 @@ version="${file.jarVersion}" #mandatory
 
  # A display name for the mod
 displayName="LOTO MOD 2.0 ALPHA" #mandatory
-
-# A URL to query for updates for this mod. See the JSON update specification <here>
-#updateJSONURL="http://myurl.me/" #optional
-
-# A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="http://killme.com" #optional
 
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="examplemod.png" #optional

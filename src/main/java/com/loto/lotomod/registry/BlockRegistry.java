@@ -5,8 +5,8 @@ import com.loto.lotomod.blocks.BlockOverlordStone;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockRegistry
@@ -27,7 +27,7 @@ public class BlockRegistry
 			ForgeRegistries.BLOCKS.register(block);
 			// We have to create individual itemblocks for each block, so lets
 			// automate it
-			ForgeRegistries.ITEMS.register(new ItemBlock(block, new Item.Properties().group(LOTOMod.lotoItemGroup)).setRegistryName(block.getRegistryName()));
+			ForgeRegistries.ITEMS.register(new BlockItem(block, new Item.Properties().group(LOTOMod.lotoItemGroup)).setRegistryName(block.getRegistryName()));
 		}
 	}
 }

@@ -7,25 +7,25 @@ import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.item.EntityFireworkRocket;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.entity.item.FireworkRocketEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.FireballEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
+import net.minecraft.item.SwordItem;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 import com.google.common.collect.Multimap;
 
-public class ItemOverlordSword extends ItemSword
+public class ItemOverlordSword extends SwordItem
 {
 
 	private float attackSpeed;
@@ -41,23 +41,23 @@ public class ItemOverlordSword extends ItemSword
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> lores, ITooltipFlag flagIn)
 	{
-		lores.add(new TextComponentString("§o§3§lThe Oversword\n§r§oShoots fireballs.\nLaunches the holder when they are using an elytra."));
+		lores.add(new StringTextComponent("§o§3§lThe Oversword\n§r§oShoots fireballs.\nLaunches the holder when they are using an elytra."));
 	}
 
 	@Override
-	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot)
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot)
 	{
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
-		if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
+		if (equipmentSlot == EquipmentSlotType.MAINHAND)
 		{
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, 0));
-			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double) this.attackSpeed, 0));
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, AttributeModifier.Operation.MULTIPLY_BASE));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double) this.attackSpeed, AttributeModifier.Operation.MULTIPLY_BASE));
 		}
 
 		return multimap;
 	}
 
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
 	{
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 
@@ -66,12 +66,12 @@ public class ItemOverlordSword extends ItemSword
 		{
 			if (!worldIn.isRemote)
 			{
-				EntityFireworkRocket entityfireworkrocket = new EntityFireworkRocket(worldIn, itemstack, playerIn);
-				worldIn.spawnEntity(entityfireworkrocket);
+				FireworkRocketEntity entityfireworkrocket = new FireworkRocketEntity(worldIn, itemstack, playerIn);
+				worldIn.addEntity(entityfireworkrocket);
 
 			}
 
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+			return new ActionResult<ItemStack>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));
 		}
 		// Otherwise, just shoot a fireball
 		else
@@ -81,22 +81,23 @@ public class ItemOverlordSword extends ItemSword
 			if (looking != null)
 			{
 				Vec3d vec3d = playerIn.getLook(1.0F);
-				EntityLargeFireball fireball = new EntityLargeFireball(worldIn);
+				FireballEntity fireball = new FireballEntity(worldIn, playerIn, 1D, 1D, 1D);
 				fireball.setPositionAndUpdate(playerIn.posX + vec3d.x * d1, playerIn.posY, playerIn.posZ + vec3d.z * d1);
-				fireball.motionX = looking.x;
-				fireball.motionY = looking.y;
-				fireball.motionZ = looking.z;
-				fireball.accelerationX = fireball.motionX * 0.2D;
-				fireball.accelerationY = fireball.motionY * 0.2D;
-				fireball.accelerationZ = fireball.motionZ * 0.2D;
+				fireball.setVelocity(looking.x, looking.y, looking.z);
+//				fireball.motionX = looking.x;
+//				fireball.motionY = looking.y;
+//				fireball.motionZ = looking.z;
+//				fireball.accelerationX = fireball.motionX * 0.2D;
+//				fireball.accelerationY = fireball.motionY * 0.2D;
+//				fireball.accelerationZ = fireball.motionZ * 0.2D;
 				fireball.explosionPower = 4;
-				worldIn.spawnEntity(fireball);
+				worldIn.addEntity(fireball);
 				playerIn.getCooldownTracker().setCooldown(this, 3);
-				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+				return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
 			}
 		}
 
-		return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
+		return new ActionResult<ItemStack>(ActionResultType.FAIL, itemstack);
 
 	}
 
