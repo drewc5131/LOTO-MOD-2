@@ -81,7 +81,7 @@ public class ItemOverlordSword extends SwordItem
 			if (looking != null)
 			{
 				Vec3d vec3d = playerIn.getLook(1.0F);
-				FireballEntity fireball = new FireballEntity(worldIn, playerIn, 1D, 1D, 1D);
+				FireballEntity fireball = new FireballEntity(worldIn, playerIn, looking.x, looking.y, looking.z);
 				fireball.setPositionAndUpdate(playerIn.posX + vec3d.x * d1, playerIn.posY, playerIn.posZ + vec3d.z * d1);
 				fireball.setVelocity(looking.x, looking.y, looking.z);
 //				fireball.motionX = looking.x;

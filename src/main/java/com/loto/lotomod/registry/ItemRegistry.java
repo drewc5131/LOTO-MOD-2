@@ -15,7 +15,7 @@ public class ItemRegistry
 
 	public static Item mythicalDiamond = new ItemMythicalDiamond((new Item.Properties()).group(LOTOMod.lotoItemGroup)).setRegistryName("mythicaldiamond");
 
-	public static Item overlordSword = new ItemOverlordSword(LOTOItemTier.OVERLORD, 8, 20f, (new Item.Properties()).group(LOTOMod.lotoItemGroup)).setRegistryName("overlordsword");
+	public static Item overlordSword = new ItemOverlordSword(LOTOItemTier.OVERLORD, 2, 20f, (new Item.Properties()).group(LOTOMod.lotoItemGroup)).setRegistryName("overlordsword");
 
 	public static Item mythicalPickaxe = new ItemMythicalPickaxe(LOTOItemTier.MYTHICAL, 2, 4f, (new Item.Properties()).group(LOTOMod.lotoItemGroup)).setRegistryName("mythicalpickaxe");
 
