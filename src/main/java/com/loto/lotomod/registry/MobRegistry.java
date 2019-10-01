@@ -15,5 +15,7 @@ public class MobRegistry
 	{
 		System.out.println("Registering Entities");
 		ForgeRegistries.ENTITIES.registerAll(MINION.setRegistryName("overlordminion"));
+		
+		
 	}
 }
