@@ -9,16 +9,18 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class OverlordMinionRenderer<T extends MobEntity, M extends OverlordMinionModel<T>> extends MobRenderer<EntityOverlordMinion, OverlordMinionModel<EntityOverlordMinion>> {
-   private static final ResourceLocation DEFAULT_RES_LOC = new ResourceLocation("lotomod:textures/entity/overlordminion.png");
+public class OverlordMinionRenderer<T extends MobEntity, M extends OverlordMinionModel<T>>
+		extends MobRenderer<EntityOverlordMinion, OverlordMinionModel<EntityOverlordMinion>> {
+	private static final ResourceLocation DEFAULT_RES_LOC = new ResourceLocation(
+			"lotomod:textures/entity/overlordminion.png");
 
-   public OverlordMinionRenderer(EntityRendererManager renderManagerIn) {
-      super(renderManagerIn, new OverlordMinionModel<>(), 1.0f);
-      this.addLayer(new HeadLayer<>(this));
-   }
+	public OverlordMinionRenderer(EntityRendererManager renderManagerIn) {
+		super(renderManagerIn, new OverlordMinionModel<>(), 1.0f);
+		this.addLayer(new HeadLayer<>(this));
+	}
 
-   protected ResourceLocation getEntityTexture(EntityOverlordMinion entity) {
-      return DEFAULT_RES_LOC;
-   }
+	protected ResourceLocation getEntityTexture(EntityOverlordMinion entity) {
+		return DEFAULT_RES_LOC;
+	}
 
 }
