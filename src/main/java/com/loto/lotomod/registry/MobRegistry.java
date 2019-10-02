@@ -3,7 +3,11 @@ package com.loto.lotomod.registry;
 import com.loto.lotomod.mob.EntityOverlordMinion;
 
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.EntitySpawnPlacementRegistry.PlacementType;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class MobRegistry
@@ -16,6 +20,6 @@ public class MobRegistry
 		System.out.println("Registering Entities");
 		ForgeRegistries.ENTITIES.registerAll(MINION.setRegistryName("overlordminion"));
 		
-		
+		EntitySpawnPlacementRegistry.register(MINION, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 	}
 }
