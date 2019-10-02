@@ -35,7 +35,6 @@ public class CustomNamePacket {
 
 		});
 		return true;
-
 	}
 
 }

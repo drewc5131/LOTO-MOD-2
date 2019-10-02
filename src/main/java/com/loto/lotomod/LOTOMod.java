@@ -39,7 +39,6 @@ public class LOTOMod {
 
 	public LOTOMod() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
 
 		MinecraftForge.EVENT_BUS.register(this);
 
@@ -54,10 +53,6 @@ public class LOTOMod {
 				.registerEntityRenderingHandler(EntityOverlordMinion.class, OverlordMinionRenderer::new));
 	}
 
-	private void setupClient(final FMLClientSetupEvent event) {
-
-	}
-
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegistryEvents {
 		@SubscribeEvent
@@ -67,21 +62,19 @@ public class LOTOMod {
 
 		@SubscribeEvent
 		public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
-
 			ItemRegistry.registerItems();
 		}
 
 		@SubscribeEvent
 		public static void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> entityRegistryEvent) {
 			MobRegistry.registerEntities();
-
 		}
 
 		@SubscribeEvent
 		public static void onBiomeRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
 			MobRegistry.registerEntitySpawn(MobRegistry.MINION, 95, 2, 4, Biomes.NETHER, Biomes.FOREST, Biomes.DEFAULT,
-					Biomes.JUNGLE, Biomes.TAIGA, Biomes.PLAINS, Biomes.MOUNTAINS);
-
+					Biomes.JUNGLE, Biomes.TAIGA, Biomes.PLAINS, Biomes.MOUNTAINS, Biomes.SAVANNA, Biomes.DESERT,
+					Biomes.STONE_SHORE);
 		}
 	}
 
