@@ -16,7 +16,6 @@ public class BlockRegistry
 
 	public static void registerBlocks()
 	{
-		System.out.println("Registering Blocks");
 		registerAll(overlordStone);
 	}
 

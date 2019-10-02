@@ -14,6 +14,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -82,6 +84,12 @@ public class LOTOMod
 		public static void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> entityRegistryEvent){
 			MobRegistry.registerEntities();
 			
+		} 
+		
+		@SubscribeEvent
+		public static void onBiomeRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
+			MobRegistry.registerEntitySpawn(MobRegistry.MINION, 95, 2, 4, Biomes.NETHER, Biomes.FOREST, Biomes.DEFAULT, Biomes.JUNGLE, Biomes.TAIGA, Biomes.PLAINS, Biomes.MOUNTAINS);
+
 		}
 	}
 

@@ -23,7 +23,6 @@ public class ItemRegistry
 	
 	public static void registerItems()
 	{
-		System.out.println("Registering Items");
 		ForgeRegistries.ITEMS.registerAll(mythicalDiamond, overlordSword, mythicalPickaxe, rightPassengerSideMirrorForToyotaCamry2007200820092010UnpaintedNonHeatedNonFoldingDoorUSABuiltOutsideRearViewReplacementMirror);
 	}
 }
